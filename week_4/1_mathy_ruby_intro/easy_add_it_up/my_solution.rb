@@ -17,7 +17,7 @@
 	#Create a method called total
 	#Create a variable called sum and set to 0
 	#Create a do function to loop through each index of the array
-	#Set sum to equal sum + i
+	#Set sum to equal sum + n
 	#Return sum
 
 # Sentence Maker
