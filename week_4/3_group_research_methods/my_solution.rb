@@ -20,12 +20,17 @@ end
 
 # Person 2
 def my_array_modification_method(source, thing_to_modify)
-  # Your code here!
+  source.map {|element| element.kind_of?(integer)? element : thing_to_modify}
 end
 
+p my_array_modification_method(i_want_pets, 1)
+
 def my_hash_modification_method(source, thing_to_modify)
-  # Your code here!
+ source = Hash.new(source.map{|key, value.kind_of?(integer)?| #blahhhhhhh need to keep working on this part.
+
 end
+
+p my_hash_modification_method(my_family_pets_ages, 2)
 
 # Identify and describe the ruby method you implemented. 
 # 
