@@ -11,6 +11,7 @@
 # Output:
 	# Create a method essay_writer and pass the above arguments to the method
 # Steps:
+	# Define essay_writer 
 	# Write a generic template that can be used with any Chicago building.
 	# Insert landmark name, address number, street, neighborhood, date erected, architect, and uniqueness arguments into the paragraph
 	# Create test code
