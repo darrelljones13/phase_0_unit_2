@@ -20,21 +20,28 @@ end
 
 # Person 2
 def my_array_modification_method(source, thing_to_modify)
-  source.map {|element| element.kind_of?(integer)? element : thing_to_modify}
+  	source.map! do |x|
+  		if x.is_a?(Integer)
+  			x + thing_to_modify
+  		else
+  			x
+  		end
+  	end
 end
 
 p my_array_modification_method(i_want_pets, 1)
 
 def my_hash_modification_method(source, thing_to_modify)
- source = Hash.new(source.map{|key, value.kind_of?(integer)?| #blahhhhhhh need to keep working on this part.
-
+ 	source.each do |name, age|
+ 		source[name] += thing_to_modify
+ 	end
 end
 
 p my_hash_modification_method(my_family_pets_ages, 2)
 
 # Identify and describe the ruby method you implemented. 
-# 
-#
+# For the array, I used the map! method to find only the integers in the array.
+# For the hash, I used each to loop through the hash, find each name and corresponding age and alter only the age.
 #
 
 
@@ -83,7 +90,7 @@ p my_array_deletion_method(i_want_pets, "a") == ["I", 4, "pets", "but", "I", "on
 p my_hash_deletion_method(my_family_pets_ages, "George") == {"Evi" => 8, "Hoobie" => 5, "Bogart" => 6, "Poly" => 6, "Annabelle" => 2, "Ditto" => 5}
 
 # Reflect!
-# 
+# I just discovered the #map method and it makes accessing elements in arrays so much easier.  I enjoyed working with both arrays and hashes.  I realized I'm much more comfortable working with arrays.  This was good practice in tinkering and seeing how both differ from each other.  I struggled with the hash challenge and had to do some homework on how to access keys and values. Learning about new methods will be incredibly helpful going forward.
 # 
 # 
 # 
