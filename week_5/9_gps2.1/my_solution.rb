@@ -1,6 +1,6 @@
 # U2.W5: Bakery Challenge GPS
 
-# I worked on this challenge with: 
+# I worked on this challenge with: Ernie Salazar
 
 
 
@@ -9,7 +9,47 @@
 
 # Our Refactored Solution
 
+def bakery_num(num_of_people, fav_food) # define method with 2 parameters
+  my_list = {"pie" => 8, "cake" => 6, "cookie" => 1} # hash with keys of items 
+                                                     # and value of number of people it feeds.
+  pie_qty = 0 
+  cake_qty = 0
+  cookie_qty = 0 # the food items available set to zero
+  
+  has_fave = false # Does the bakery make this item?
 
+  my_list.each_key do |k|
+    if k == fav_food
+      	has_fave = true
+    else
+    	raise ArgumentError.new("You can't make that food")
+    end
+end
+	# my_list.each_key {|k| k == fav_food ? has_fave = true : raise ArgumentError.new("You can't make that food")}
+	
+  	fav_food_qty = my_list.values_at(fav_food)[0] 
+
+	if num_of_people % fav_food_qty == 0 
+    	num_of_food = num_of_people / fav_food_qty
+       	#return 
+       	"You need to make #{num_of_food} #{fav_food}(s)."
+    else                                    
+        while num_of_people > 0                 
+        	if num_of_people / my_list["pie"] > 0                                     
+            	pie_qty = num_of_people / my_list["pie"]
+            	num_of_people = num_of_people % my_list["pie"]
+        	elsif num_of_people / my_list["cake"] > 0
+            	cake_qty = num_of_people / my_list["cake"]
+            	num_of_people = num_of_people % my_list["cake"]
+        	else
+            	cookie_qty = num_of_people
+            	num_of_people = 0
+          end
+        end
+    	return "You need to make #{pie_qty} pie(s), #{cake_qty} cake(s), and #{cookie_qty} cookie(s)."
+    end  # the output is a string with the quantities of each item to make filled in. 
+end
+ 
 
 
 
