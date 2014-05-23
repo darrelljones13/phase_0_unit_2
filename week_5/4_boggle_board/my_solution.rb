@@ -36,10 +36,10 @@ puts create_word(boggle_board, [0,1], [0,2], [1,2]) #=> returns "rad"
 # Part 2: Write a method that takes a row number and returns all the elements in the row.  
 
 # Pseudocode
-define method get_row with one parameter(row)
-	bring the boggle_board nested array into the method
-	return boggle_board[row]
-end method
+# define method get_row with one parameter(row)
+# 	bring the boggle_board nested array into the method
+# 	return boggle_board[row]
+# end method
 
 # Initial Solution
 def get_row(row)
@@ -57,7 +57,7 @@ end
 puts get_row(1) #=> returns i, o, d, t
 
 # Reflection 
-Tried to use a #each_index method on the boggle_board array, but it was returning it as an undefined variable.  I had to bring the boggle_board array into the method for everything to work. I'm going to keep thinking on this one.  There has to be a better way of doing this.
+#Tried to use a #each_index method on the boggle_board array, but it was returning it as an undefined variable.  I had to bring the boggle_board array into the method for everything to work. I'm going to keep thinking on this one.  There has to be a better way of doing this.
 
 
 #-------------------------------------------------------------------------------
@@ -65,6 +65,10 @@ Tried to use a #each_index method on the boggle_board array, but it was returnin
 # Part 3: Now write a method that takes a column number and returns all the elements in the column.
 
 # Pseudocode
+# define method get_col with one parameter(col)
+# bring in variable boggle_board with nested array
+# call a #transpose method on boggle_board array[col]
+# end method
 
 # Initial Solution
 def get_col(col)
