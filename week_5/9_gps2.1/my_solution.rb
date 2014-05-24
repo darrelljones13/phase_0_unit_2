@@ -4,57 +4,33 @@
 
 
 
-
-
-
 # Our Refactored Solution
 
-def bakery_num(num_of_people, fav_food) # define method with 2 parameters
-  my_list = {"pie" => 8, "cake" => 6, "cookie" => 1} # hash with keys of items 
-                                                     # and value of number of people it feeds.
-  pie_qty = 0 
-  cake_qty = 0
-  cookie_qty = 0 # the food items available set to zero
+def bakery_num(people, food) 
+  menu = {"pie" => 8, "cake" => 6, "cookie" => 1}
+  qty = {"pie" => 0, "cake" => 0, "cookie" => 0}
   
-  has_fave = false # Does the bakery make this item?
+  raise ArgumentError.new("You can't make that food") if menu.has_key?(food) == false
 
-  my_list.each_key do |k|
-    if k == fav_food
-      	has_fave = true
-    else
-    	raise ArgumentError.new("You can't make that food")
+  if people % menu[food] == 0 
+    food_qty = people / menu[food]
+    "You need to make #{food_qty} #{food}(s)."
+  else
+    while people > 0                 
+      if people / menu["pie"] > 0 
+        qty["pie"] = people / menu["pie"]
+        people = people % menu["pie"]
+      elsif people / menu["cake"] > 0
+        qty["cake"] = people / menu["cake"]
+        people = people % menu["cake"]
+      else
+        qty["cookie"] = people
+        people = 0
+      end
     end
+    "You need to make #{qty["pie"]} pie(s), #{qty["cake"]} cake(s), and #{qty["cookie"]} cookie(s)."
+  end 
 end
-	# my_list.each_key {|k| k == fav_food ? has_fave = true : raise ArgumentError.new("You can't make that food")}
-	
-  	fav_food_qty = my_list.values_at(fav_food)[0] 
-
-	if num_of_people % fav_food_qty == 0 
-    	num_of_food = num_of_people / fav_food_qty
-       	#return 
-       	"You need to make #{num_of_food} #{fav_food}(s)."
-    else                                    
-        while num_of_people > 0                 
-        	if num_of_people / my_list["pie"] > 0                                     
-            	pie_qty = num_of_people / my_list["pie"]
-            	num_of_people = num_of_people % my_list["pie"]
-        	elsif num_of_people / my_list["cake"] > 0
-            	cake_qty = num_of_people / my_list["cake"]
-            	num_of_people = num_of_people % my_list["cake"]
-        	else
-            	cookie_qty = num_of_people
-            	num_of_people = 0
-          end
-        end
-    	return "You need to make #{pie_qty} pie(s), #{cake_qty} cake(s), and #{cookie_qty} cookie(s)."
-    end  # the output is a string with the quantities of each item to make filled in. 
-end
- 
-
-
-
-
-
 
 
 #DRIVER CODE-- DO NOT MODIFY ANYTHING BELOW THIS LINE (except in the section at the bottom)
@@ -68,12 +44,12 @@ p bakery_num(130, "pie") == "You need to make 16 pie(s), 0 cake(s), and 2 cookie
 # p bakery_num(3, "apples") # this will raise an ArgumentError
 
 # You SHOULD change this driver code. Why? Because it doesn't make sense.
-p bakery_num(41, "cake") == "You need to make 5 pie(s), 0 cake(s), and 1 cookie(s)." # WHAAAAAT? I thought I said I wanted cake!
-
+p bakery_num(41, "pie") == "You need to make 5 pie(s), 0 cake(s), and 1 cookie(s)." 
+#switched cake to pie
 
 
 
 #  Reflection 
-
+# My GPS partner and I sort of jumped straight into release 2, and started to look at the code line by line to see what it was doing. Our instructor got us back on track and we looked at the big picture breaking down what the code was doing.  I had some trouble grasping what exactly was happening in that big if/elsif/else statement.  Luckily, I had a fabulous GPS partner in Ernie. He also had some great refactoring ideas and was kind enough to pair up again to walk me through them.  Though I continue to scrape for refactoring ideas, I am slowly getting better at it.  
 
 
