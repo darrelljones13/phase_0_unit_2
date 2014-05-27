@@ -60,6 +60,7 @@ puts get_row(1) #=> returns i, o, d, t
 #Tried to use a #each_index method on the boggle_board array, but it was returning it as an undefined variable.  I had to bring the boggle_board array into the method for everything to work. I'm going to keep thinking on this one.  There has to be a better way of doing this.
 
 
+<<<<<<< HEAD
 #-------------------------------------------------------------------------------
 
 # Part 3: Now write a method that takes a column number and returns all the elements in the column.
@@ -90,3 +91,5 @@ Just discovered the #transpose method!  It assumes that the array you are callin
 
 
 
+=======
+>>>>>>> upstream/master
